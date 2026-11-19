@@ -5,7 +5,7 @@ Merci de contribuer à Azot. Gardez les changements ciblés, sans télémétrie 
 ## Démarrer
 
 ```bash
-git clone <url-du-dépôt>
+git clone <https://github.com/CeBonVieuxAxel/Azot-Browser>
 cd azot-browser
 npm install
 npm start
