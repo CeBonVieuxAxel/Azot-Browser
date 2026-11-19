@@ -30,7 +30,7 @@ Téléchargez l’installeur correspondant à votre système depuis la page **Re
 Pour compiler localement, Node.js 20+ et les outils propres à votre plateforme sont requis.
 
 ```bash
-git clone <url-du-dépôt>
+git clone <https://github.com/CeBonVieuxAxel/Azot-Browser>
 cd azot-browser
 npm install
 npm start
