@@ -1,0 +1,39 @@
+name: Build and publish Azot
+
+on:
+  push:
+    tags: ['v*']
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    name: ${{ matrix.name }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            name: Windows
+            command: npm run dist:win -- --publish always
+          - os: macos-latest
+            name: macOS
+            command: npm run dist:mac -- --publish always
+          - os: ubuntu-latest
+            name: Linux
+            command: npm run dist:linux -- --publish always
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      # Le lockfile existant a précédé electron-builder ; npm install le complète
+      # de façon déterministe pour chaque release avec le manifeste versionné.
+      - run: npm install
+      - name: Build and publish
+        shell: bash
+        run: ${{ matrix.command }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

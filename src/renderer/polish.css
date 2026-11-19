@@ -1,0 +1,5 @@
+/* Micro-interactions isolées de la finition visuelle. */
+#reload svg { transform-origin: 50% 50%; }
+#reload.is-spinning svg { animation: azot-reload-spin .72s cubic-bezier(.22, 1, .36, 1); }
+#reload.is-loading svg { animation: azot-reload-spin 1.05s linear infinite; }
+@keyframes azot-reload-spin { to { transform: rotate(360deg); } }

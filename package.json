@@ -1,0 +1,36 @@
+{
+  "name": "azot-browser",
+  "version": "1.0.0-beta",
+  "description": "Azot — Navigateur web minimaliste, ultra-fluide, transparent et personnalisable.",
+  "main": "src/main/index.js",
+  "author": "Azot Contributors",
+  "license": "MIT",
+  "scripts": {
+    "start": "node node_modules/electron/cli.js .",
+    "dev": "node node_modules/electron/cli.js . --enable-logging",
+    "icons": "powershell -ExecutionPolicy Bypass -File scripts/generate-icons.ps1",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "dist:win": "electron-builder --win",
+    "dist:mac": "electron-builder --mac",
+    "dist:linux": "electron-builder --linux"
+  },
+  "keywords": ["browser", "minimalist", "electron", "adblocker", "glassmorphism"],
+  "build": {
+    "appId": "com.azot.browser",
+    "productName": "Azot",
+    "copyright": "Copyright © 2026 Azot Contributors",
+    "directories": { "output": "release", "buildResources": "build" },
+    "files": ["src/**/*", "package.json", "azot logo.png"],
+    "extraResources": [{ "from": "azot logo.png", "to": "azot logo.png" }],
+    "asar": true,
+    "win": { "icon": "build/icon.ico", "target": ["nsis", "portable"] },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true, "createDesktopShortcut": true, "createStartMenuShortcut": true, "shortcutName": "Azot" },
+    "mac": { "icon": "build/icon.icns", "category": "public.app-category.productivity", "target": ["dmg", "zip"] },
+    "linux": { "icon": "build/icon.png", "category": "Network", "target": ["AppImage", "deb"] },
+    "publish": [{ "provider": "github", "releaseType": "prerelease" }]
+  },
+  "devDependencies": { "electron": "^33.2.0", "electron-builder": "^26.0.12" },
+  "dependencies": { "@ghostery/adblocker-electron": "^2.20.3", "cross-fetch": "^4.0.0" },
+  "allowScripts": { "electron@33.4.11": true }
+}
