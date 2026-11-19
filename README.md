@@ -1,7 +1,7 @@
 <p align="center">
   <img src="azot%20logo.png" width="112" height="112" alt="Logo Azot">
 </p>
-![[Azot.jpg]]
+<img width="2752" height="1536" alt="Azot" src="https://github.com/user-attachments/assets/46588d0e-6eb2-43b9-a099-e2eec40db489" />
 <h1 align="center">Azot</h1>
 <p align="center"><em>Le web, sans le bruit.</em></p>
 <p align="center">
